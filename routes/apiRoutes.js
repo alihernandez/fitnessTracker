@@ -3,12 +3,15 @@ const {Workout} = require("../models")
 
 const db = require("../models")
 
+module.exports= function(app) {
+
+
 app.get("/api/workouts", function (req, res){
     db.Workout.find().then(function (dbWorkout){
         // console.log(dbWorkout),
 res.json(dbWorkout)
     })
-})
+});
 
 //create new workout
 app.post('/api/workouts', (req,res) => {
@@ -18,15 +21,11 @@ app.post('/api/workouts', (req,res) => {
     .catch(({ error }) => {
         console.log(error);
     })
-})
+});
 
 
 app.put("/api/workouts/:id", ({body, params}, res) => {
     // console.log(body, params)
-    
-    let workoutId = params.id
-    console.log(params.id)
-    console.log(body)
     db.Workout.findByIdAndUpdate(params.id, { $push: { exercises: body}},
             )
             .then(workouts => {
@@ -35,33 +34,10 @@ app.put("/api/workouts/:id", ({body, params}, res) => {
             .catch(err => {
                 res.json(err);
             })
-
-
-// db.Workout.find({_id: workoutId})
-//             .then(dbWorkout => {
-//                 console.log(dbWorkout)
-//                 savedExercises = dbWorkout[0].exercises;
-//                 res.json(dbWorkout[0].exercises);
-//                 let allExercises = [...savedExercises, body]
-//                 console.log(allExercises)
-//                 updateWorkout(allExercises)
-//             })
-//             .catch(err => {
-//                 res.json(err);
-//             })
-        // })
-
-            // function updateWorkout(exercises){
-            //     db.Workout.findByIdAndUpdate(workoutId, {exercises: exercises}, function(err, res){
-            //     if(err){
-            //         console.log(err)
-            //     }
-    
-                 })
-
+        })
 app.get("/api/workouts/range", function (req, res){
     db.Workout.find().then(function (dbWorkout){
 res.json(dbWorkout)
     })
 })
-module.exports = app
+}
