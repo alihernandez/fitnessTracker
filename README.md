@@ -5,6 +5,10 @@
 ## gitHub portfolio:
 https://github.com/alihernandez
 
+## Deployed App
+https://dry-hollows-72875.herokuapp.com/?id=5f9795437c5c31001740170c
+
+
 ## Email: ali.hernandez9two@gmail.com
 
 ## Description 
@@ -28,7 +32,8 @@ npm i then npm start. Add a workout by clicking add workout. Continue on a worko
 
 ## Credits
 ------------
-Learning assitants, Phil Loy(tutor), and classmates.
+Learning assitants, Phil Loy(tutor), and classmates. Qua Nguyen also helped a great deal.(https://github.com/nguyenmqua/Portfolio)
+
 
 ## License
 ------------
